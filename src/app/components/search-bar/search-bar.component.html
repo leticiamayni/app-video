@@ -1,0 +1,15 @@
+<mat-form-field class="search-bar" appearance="outline">
+    <input 
+      matInput 
+      [matAutocomplete]="auto" 
+      [formControl]="searchControl"
+      placeholder="Pesquisar"
+    />
+    <mat-autocomplete #auto="matAutocomplete" >
+      <mat-option *ngFor="let title of filteredTitles" 
+      [value]="title"
+      (optionSelected)="onOptionSelected($event)">
+        {{ title }}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>

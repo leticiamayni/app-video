@@ -1,0 +1,17 @@
+.container {
+    width: 16rem;
+
+    .video-card {
+        img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        p {
+            color: #2C2C2C;
+            font-size: 1rem;
+            font-style: normal;
+            font-weight: 700;
+        }
+    }
+}

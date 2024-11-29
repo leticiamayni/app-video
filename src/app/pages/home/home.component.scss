@@ -1,0 +1,17 @@
+.container {
+
+    .nav-bar {
+        display: flex;
+        align-items: center;
+
+    }
+
+    .fila {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 24px;
+        //overflow-x: auto;
+        //scroll-behavior: smooth;
+        //scrollbar-width: thin;
+    }
+}
