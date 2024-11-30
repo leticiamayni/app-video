@@ -5,10 +5,11 @@
       [formControl]="searchControl"
       placeholder="Pesquisar"
     />
-    <mat-autocomplete #auto="matAutocomplete" >
+    <mat-autocomplete 
+    #auto="matAutocomplete" 
+    (optionSelected)="onOptionSelected($event)">
       <mat-option *ngFor="let title of filteredTitles" 
-      [value]="title"
-      (optionSelected)="onOptionSelected($event)">
+      [value]="title">
         {{ title }}
       </mat-option>
     </mat-autocomplete>

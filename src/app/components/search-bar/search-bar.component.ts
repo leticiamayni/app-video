@@ -4,6 +4,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { VideoService, Video } from '../../services/video.service';
 import { ReactiveFormsModule, FormControl } from '@angular/forms';
 import { NgForOf } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-search-bar',
@@ -24,11 +25,12 @@ export class SearchBarComponent {
   videos: Video[] = [];
   filteredTitles: string[] = [];
 
-  constructor(private videoService: VideoService) { }
+  constructor(
+    private videoService: VideoService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
-    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-    //Add 'implements OnInit' to the class.
     this.videoService.getVideos().subscribe((videos) => {
       this.videos = videos;
       this.setupAutoComplete();
@@ -54,6 +56,8 @@ export class SearchBarComponent {
     const selectedVideo = this.videos.find((video) => video.title === selectedTitle);
     if (selectedVideo) {
       this.videoSelected.emit(selectedVideo);
+      this.router.navigate(['video/', selectedVideo.id]);
+      console.log(selectedVideo.id)
     }
   }
 }

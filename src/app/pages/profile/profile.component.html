@@ -1,1 +1,15 @@
 <p>profile works!</p>
+<div class="nav-bar">
+    <app-search-bar></app-search-bar>
+    <app-user-avatar [size]="'40px'"
+    [showMenu]="true"></app-user-avatar>
+</div>
+
+<div class="user-container">
+    <app-user-avatar 
+        [size]="'200px'"
+        [showMenu]="false"
+    ></app-user-avatar>
+    <h3>{{ profile?.name }}</h3>
+    <p>{{ profile?.email }}</p>
+</div>

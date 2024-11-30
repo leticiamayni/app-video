@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Video } from '../../services/video.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-video-card',
@@ -10,4 +11,10 @@ import { Video } from '../../services/video.service';
 })
 export class VideoCardComponent {
   @Input() video!: Video;
+
+  constructor(private router: Router) {}
+
+  redirectToVideo(): void {
+    this.router.navigate(['/video', this.video.id]);
+  }
 }

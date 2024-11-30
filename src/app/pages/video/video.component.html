@@ -1,1 +1,16 @@
 <p>video works!</p>
+<div class="nav-bar">
+    <app-search-bar></app-search-bar>
+    <app-user-avatar [size]="'40px'"
+    [showMenu]="true"></app-user-avatar>
+</div>
+
+<div *ngIf="video" class="video">
+    <iframe *ngIf="safeUrl"
+    [src]="safeUrl"
+    frameborder="0"></iframe>
+    <div class="video-info">
+        <h1>{{ video.title }}</h1>
+        <p>{{ video.description }}</p>
+    </div>
+</div>

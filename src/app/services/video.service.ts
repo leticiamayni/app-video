@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 export interface Video {
+videoId: any;
   id: number;
   title: string;
   description: string;
@@ -22,5 +23,9 @@ export class VideoService {
 
   getVideos(): Observable<Video[]> {
     return this.http.get<Video[]>(this.apiUrl);
+  }
+
+  getVideoById(id: string): Observable<Video> {
+    return this.http.get<Video>(`${this.apiUrl}/${id}`);
   }
 }

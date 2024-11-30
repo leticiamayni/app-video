@@ -2,6 +2,7 @@ import { Component, Input, Inject } from '@angular/core';
 import { AuthService, User } from '@auth0/auth0-angular';
 import { NgIf, DOCUMENT } from '@angular/common';
 import { MatMenuModule } from '@angular/material/menu';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-avatar',
@@ -31,7 +32,7 @@ import { MatMenuModule } from '@angular/material/menu';
     />
 
     <mat-menu #menu="matMenu">
-      <button mat-menu-item>Ver perfil</button>
+      <button mat-menu-item (click)="redirectToProfile()">Ver perfil</button>
       <button mat-menu-item (click)="logout()">Logout</button>
     </mat-menu>
 `,
@@ -42,7 +43,8 @@ export class UserAvatarComponent {
   @Input() showMenu: boolean = true;
 
   constructor(public auth: AuthService,
-    @Inject(DOCUMENT) private doc: Document
+    @Inject(DOCUMENT) private doc: Document,
+    private router: Router
   ) { }
 
   profile?: User | undefined | null;
@@ -55,5 +57,9 @@ export class UserAvatarComponent {
 
   logout() {
     this.auth.logout({ logoutParams: { returnTo: this.doc.location.origin } });
+  }
+
+  redirectToProfile() {
+    this.router.navigate(['profile']);
   }
 }

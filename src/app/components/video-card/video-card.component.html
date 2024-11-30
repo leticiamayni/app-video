@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="video-card">
+    <div class="video-card" (click)="redirectToVideo()">
         <img [src]="video.thumbnail" [alt]="video.title">
         <p>{{ video.title }}</p>
     </div>
