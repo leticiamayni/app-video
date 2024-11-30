@@ -1,15 +1,26 @@
-<p>profile works!</p>
-<div class="nav-bar">
-    <app-search-bar></app-search-bar>
-    <app-user-avatar [size]="'40px'"
-    [showMenu]="true"></app-user-avatar>
-</div>
+<div class="container">
+    <app-nav-bar></app-nav-bar>
+    
+    <div class="content">
+        <div class="max-user">
+            <app-user-avatar 
+                [size]="'150px'"
+                [showMenu]="false"
+            ></app-user-avatar>
+            <div class="max-user-info">
+                <h1>{{ profile?.name }}</h1>
+                <h3>{{ profile?.email }}</h3>
+            </div>
+        </div>
 
-<div class="user-container">
-    <app-user-avatar 
-        [size]="'200px'"
-        [showMenu]="false"
-    ></app-user-avatar>
-    <h3>{{ profile?.name }}</h3>
-    <p>{{ profile?.email }}</p>
+        <div class="my-list">
+            <h2>Continue navegando</h2>
+            <div class="fila">
+                <app-video-card 
+                *ngFor="let video of videos" 
+                [video]="video">
+                </app-video-card>
+            </div>
+        </div>
+    </div>
 </div>

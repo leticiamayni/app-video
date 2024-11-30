@@ -1,0 +1,29 @@
+.container {
+    width: 100%;
+
+    .nav-bar {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+        
+        button {
+            margin-bottom: 22px;
+            background-color: white;
+            border: 1px solid #757575;
+            box-shadow: none;
+
+            mat-icon {
+                color: #757575;
+            }
+        }
+
+        app-search-bar {
+            width: 60%;
+        }
+    
+        app-user-avatar {
+            margin-bottom: 22px;
+        }
+    }
+}

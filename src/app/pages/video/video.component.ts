@@ -3,16 +3,14 @@ import { ActivatedRoute } from '@angular/router';
 import { Video, VideoService } from '../../services/video.service';
 import { NgIf } from '@angular/common';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
-import { SearchBarComponent } from "../../components/search-bar/search-bar.component";
-import { UserAvatarComponent } from "../../components/user-avatar/user-avatar.component";
+import { NavBarComponent } from "../../components/nav-bar/nav-bar.component";
 
 @Component({
   selector: 'app-video',
   standalone: true,
   imports: [
     NgIf,
-    SearchBarComponent,
-    UserAvatarComponent
+    NavBarComponent
 ],
   templateUrl: './video.component.html',
   styleUrl: './video.component.scss'

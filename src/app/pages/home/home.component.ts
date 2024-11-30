@@ -7,6 +7,7 @@ import { Video, VideoService } from '../../services/video.service';
 import { VideoCardComponent } from '../../components/video-card/video-card.component';
 import { UserAvatarComponent } from "../../components/user-avatar/user-avatar.component";
 import { SearchBarComponent } from "../../components/search-bar/search-bar.component";
+import { NavBarComponent } from "../../components/nav-bar/nav-bar.component";
 
 @Component({
   selector: 'app-home',
@@ -17,7 +18,8 @@ import { SearchBarComponent } from "../../components/search-bar/search-bar.compo
     VideoCardComponent,
     NgForOf,
     UserAvatarComponent,
-    SearchBarComponent
+    SearchBarComponent,
+    NavBarComponent
 ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
@@ -31,8 +33,6 @@ export class HomeComponent {
   ) {}
 
   ngOnInit(): void {
-    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-    //Add 'implements OnInit' to the class.
     this.videoService.getVideos().subscribe((data) => {
       this.videos = data;
     });

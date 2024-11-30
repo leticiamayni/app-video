@@ -1,0 +1,15 @@
+<div class="container">
+    <div class="nav-bar">
+        <button
+        mat-fab
+        appearance="outline"
+        (click)="redirectToHome()">
+            <mat-icon>home</mat-icon>
+        </button>
+        <app-search-bar></app-search-bar>
+        <app-user-avatar 
+            [size]="'40px'"
+            [showMenu]="true"
+        ></app-user-avatar>
+    </div>
+</div>

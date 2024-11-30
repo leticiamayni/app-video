@@ -1,17 +1,25 @@
 .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 32px;
 
-    .nav-bar {
-        display: flex;
-        align-items: center;
-
+    app-nav-bar {
+        width: 100%;
     }
 
     .fila {
+        width: 100%;
         display: flex;
         flex-wrap: wrap;
-        gap: 24px;
+        justify-content: space-between;
         //overflow-x: auto;
         //scroll-behavior: smooth;
         //scrollbar-width: thin;
+
+        app-video-card {
+            width: 16rem;
+        }
     }
 }
