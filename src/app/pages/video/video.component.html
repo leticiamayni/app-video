@@ -1,15 +1,17 @@
 <div class="container">
     <app-nav-bar></app-nav-bar>
     
-    <div *ngIf="video" class="video">
-        <iframe *ngIf="safeUrl"
-        [src]="safeUrl"
-        frameborder="0"></iframe>
+    <div *ngIf="video" class="content">
+        <div class="video">
+            <iframe *ngIf="safeUrl"
+            [src]="safeUrl"
+            frameborder="0"></iframe>
+        </div>
         <div class="video-info">
             <h1>{{ video.title }}</h1>
             <p>{{ video.uploadedAt }}</p>
             <div class="views">
-                <h3>{{ video.views }}</h3>
+                <h3>{{ formatViews(video.views) }}</h3>
                 <p>views</p>
             </div>
             <p>{{ video.description }}</p>

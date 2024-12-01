@@ -11,5 +11,5 @@ export const routes: Routes = [
     { path: 'home', component: HomeComponent, canActivate: [authGuardFn] }, // Proteção ativada aqui
     { path: 'video/:id', component: VideoComponent },
     { path: 'profile', component: ProfileComponent },
-    { path: '**', redirectTo: 'login' } //provisório
+    { path: '**', redirectTo: 'login' }
 ];

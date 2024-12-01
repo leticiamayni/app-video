@@ -21,6 +21,7 @@ import { NavBarComponent } from "../../components/nav-bar/nav-bar.component";
 export class ProfileComponent {
   profile?: User | undefined | null;
   videos: Video[] = [];
+  popularVideos: Video[] = [];
 
   constructor(
     public auth: AuthService,
@@ -34,6 +35,10 @@ export class ProfileComponent {
 
     this.videoService.getVideos().subscribe((data) => {
       this.videos = data;
+    });
+
+    this.videoService.getPopularVideos().subscribe((videos) => {
+      this.popularVideos = videos;
     });
   }
 }

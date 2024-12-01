@@ -4,6 +4,7 @@ import { Video, VideoService } from '../../services/video.service';
 import { NgIf } from '@angular/common';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { NavBarComponent } from "../../components/nav-bar/nav-bar.component";
+import { formatViews } from '../../utils/format-views';
 
 @Component({
   selector: 'app-video',
@@ -18,6 +19,7 @@ import { NavBarComponent } from "../../components/nav-bar/nav-bar.component";
 export class VideoComponent {
   video? : Video;
   safeUrl?: SafeResourceUrl;
+  formatViews = formatViews;
 
   constructor(
     private route: ActivatedRoute,
@@ -26,7 +28,6 @@ export class VideoComponent {
   ) {}
 
   ngOnInit(): void {
-    // Inicializa o primeiro vídeo
     this.route.paramMap.subscribe((params) => {
       const videoId = params.get('id');
       if (videoId) {
@@ -38,13 +39,17 @@ export class VideoComponent {
   loadVideo(id: string): void {
     this.videoService.getVideoById(id).subscribe((video) => {
       this.video = video;
-      // Extraí o ID do vídeo no URL do YouTube e cria o link de embed
+
       const videoIdMatch = video.url.match(/v=([^&]+)/);
       const embedUrl = videoIdMatch ? `https://www.youtube.com/embed/${videoIdMatch[1]}` : video.url;
 
-      // Usa o DomSanitizer para garantir a segurança da URL
       this.safeUrl = this.sanitizer.bypassSecurityTrustResourceUrl(embedUrl);
-      console.log(embedUrl);  // Para depuração
+      console.log(embedUrl);
     });
+  }
+
+  incrementViews(video: any): void {
+    video.views++;
+    this.videoService.updateViews(video.id, video.views).subscribe();
   }
 }

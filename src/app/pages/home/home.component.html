@@ -1,10 +1,25 @@
 <div class="container">
     <app-nav-bar></app-nav-bar>
 
-    <div class="fila">
-        <app-video-card 
-        *ngFor="let video of videos" 
-        [video]="video">
-        </app-video-card>
+    <div class="content">
+        <section>
+            <h2>Mais populares</h2>
+            <div class="fila">
+                <app-video-card 
+                *ngFor="let video of popularVideos" 
+                [video]="video">
+                </app-video-card>
+            </div>
+        </section>
+    
+        <section>
+            <h2>Mais recentes</h2>
+            <div class="fila">
+                <app-video-card 
+                *ngFor="let video of recentVideos" 
+                [video]="video">
+                </app-video-card>
+            </div>
+        </section>
     </div>
 </div>

@@ -4,22 +4,61 @@
     justify-content: center;
     align-items: center;
     margin: 32px;
+    gap: 32px;
 
     app-nav-bar {
         width: 100%;
     }
 
-    .fila {
-        width: 100%;
+    .content {
         display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        //overflow-x: auto;
-        //scroll-behavior: smooth;
-        //scrollbar-width: thin;
+        flex-direction: column;
+        gap: 32px;
 
-        app-video-card {
-            width: 16rem;
+        section {
+            color: #2C2C2C;
+            .fila {
+                width: 100%;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: flex-start;
+                gap: 20px;
+                //overflow-x: auto;
+                //scroll-behavior: smooth;
+                //scrollbar-width: thin;
+        
+                app-video-card {
+                    flex: 1 1 calc(25% - 20px); /* Ocupa aproximadamente 25% da largura menos o gap */
+                    max-width: calc(25% - 20px); /* Limita a largura máxima ao mesmo cálculo */
+                    border-radius: 10px;
+                    aspect-ratio: 16 / 9; /* Mantém a proporção dos cards */
+                }
+
+                &::after {
+                    content: '';
+                    flex: 1 1 calc(25% - 20px); /* Preenche o espaço vazio com elementos invisíveis */
+                    max-width: calc(25% - 20px);
+                }
+
+                @media (max-width: 1200px) { 
+                    app-video-card { 
+                        flex: 1 1 calc(33.33% - 20px);
+                        max-width: calc(33.33% - 20px); 
+                    } 
+                } 
+                @media (max-width: 992px) { 
+                    app-video-card { 
+                        flex: 1 1 calc(50% - 20px);
+                        max-width: calc(50% - 20px); 
+                    } 
+                } 
+                @media (max-width: 768px) { 
+                    app-video-card { 
+                        flex: 1 1 100%;
+                        max-width: 100%; 
+                    } 
+                }
+            }
         }
     }
 }
