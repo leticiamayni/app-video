@@ -112,10 +112,10 @@ Este projeto é uma aplicação de streaming de vídeos desenvolvida em Angular,
     **/video/:id:** Página de exibição do vídeo com detalhes.
 
 ### **Tecnologias Utilizadas**
-    **Framework:** Angular
-    **Estilização:** SCSS e Angular Material
-    **Mock de Backend:** JSON Server
-    **Ferramentas adicionais:**
-        RxJS para manipulação de streams de dados.
-        TypeScript para tipagem estática.
+    - **Framework:** Angular
+    - **Estilização:** SCSS e Angular Material
+    - **Mock de Backend:** JSON Server
+    - **Ferramentas adicionais:**
+        - RxJS para manipulação de streams de dados.
+        - TypeScript para tipagem estática.
 
