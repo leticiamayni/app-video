@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Video } from '../../services/video.service';
 import { Router } from '@angular/router';
+import { formatViews } from '../../utils/format-views';
 
 @Component({
   selector: 'app-video-card',
@@ -11,6 +12,7 @@ import { Router } from '@angular/router';
 })
 export class VideoCardComponent {
   @Input() video!: Video;
+  formatViews = formatViews;
 
   constructor(private router: Router) {}
 

@@ -2,16 +2,28 @@
     
     .video-card {
         cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+
         img {
             width: 100%;
             border-radius: 10px;
         }
 
-        p {
-            color: #2C2C2C;
-            font-size: 1rem;
-            font-style: normal;
-            font-weight: 700;
+        .video-card-info {
+            p {
+                color: #2C2C2C;
+                font-size: 1rem;
+                font-style: normal;
+                font-weight: 700;
+            }
+            .views {
+                color: #727272;
+                font-size: 1rem;
+                font-style: normal;
+                font-weight: 400;
+            }
         }
     }
 }
