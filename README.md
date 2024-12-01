@@ -1,27 +1,116 @@
-# AppVideos
+# **Video Streaming App**
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.10.
+Este projeto é uma aplicação de streaming de vídeos desenvolvida em Angular, com funcionalidades para exibir listas de vídeos organizadas em categorias, detalhes do vídeo e contagem de visualizações.
 
-## Development server
+---
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## **Funcionalidades**
 
-## Code scaffolding
+- **Home Page**:
+  - Exibição de listas de vídeos divididas em categorias como "Mais populares" e "Mais recentes".
+  - Vídeo-cards com thumbnail, título, número de visualizações formatado.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- **Página de exibição do vídeo**:
+  - Reproduz o vídeo via iframe do YouTube.
+  - Exibe informações adicionais (título, descrição, visualizações).
+  - Incrementa automaticamente o número de visualizações ao acessar o vídeo.
 
-## Build
+- **Formatação das visualizações**:
+  - Números grandes são convertidos para formatos legíveis como `1mil`, `1mi`, `1bi`.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- **Interação com dados via JSON Server**:
+  - Simula o backend para persistência de dados.
+  - Permite a manipulação de visualizações, likes, favoritos e "watch later".
 
-## Running unit tests
+---
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## **Instalação**
 
-## Running end-to-end tests
+### **Pré-requisitos**
+- Node.js (versão 16 ou superior)
+- Angular CLI
+- JSON Server
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### **Passos**
+1. Clone o repositório:
+   ```bash
+   git clone https://github.com/seu-usuario/nome-do-repositorio.git
+   cd nome-do-repositorio
 
-## Further help
+2. Instale as dependências:
+    ```bash
+    npm install
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+3. Inicie o JSON Server:
+    ```bash
+    npx json-server --watch db.json --port 3000
+
+4. Inicie o servidor de desenvolvimento Angular:
+    ```bash
+    ng serve
+
+5. Acesse a aplicação no navegador:
+    ```bash
+    http://localhost:4200
+  ```
+
+### **Estrutura do Projeto**
+
+    ```json
+    src/
+    ├── app/
+    │   ├── components/
+    │   │   ├── video-card/       # Componente para exibir vídeo na home
+    │   │   ├── video/            # Página de exibição do vídeo
+    │   │   └── nav-bar/          # Barra de navegação
+    │   ├── services/
+    │   │   ├── video.service.ts  # Manipulação dos dados de vídeos
+    │   ├── utils/
+    │   │   └── format-views.ts   # Função para formatar números de visualizações
+    │   ├── app.module.ts         # Módulo principal da aplicação
+    │   ├── app.component.ts      # Componente raiz
+    │   └── app-routing.module.ts # Configuração de rotas
+    ├── assets/                   # Recursos estáticos (imagens, estilos)
+    ├── styles.scss               # Estilos globais
+    └── index.html                # Arquivo HTML principal
+    ```
+
+### **Banco de Dados Simulado (db.json)**
+    Exemplo de estrutura do arquivo:
+
+        ```json
+        {
+        "videos": [
+            {
+            "id": 1,
+            "title": "Introdução ao Angular",
+            "views": 12500,
+            "thumbnail": "link-da-miniatura",
+            "description": "Descrição do vídeo",
+            "url": "https://www.youtube.com/embed/video-id"
+            },
+            {
+            "id": 2,
+            "title": "Melhores práticas com TypeScript",
+            "views": 457800,
+            "thumbnail": "link-da-miniatura",
+            "description": "Descrição do vídeo",
+            "url": "https://www.youtube.com/embed/video-id"
+            }
+        ]
+    }
+        ```
+
+
+### **Rotas de Aplicação**
+    **/:** Página inicial com listas de vídeos.
+    **/video/:id:** Página de exibição do vídeo com detalhes.
+
+### **Tcnologias Utilizadas**
+    **Framework:** Angular
+    **Estilização:** SCSS e Angular Material
+    **Mock de Backend:** JSON Server
+    **Ferramentas adicionais:**
+        RxJS para manipulação de streams de dados.
+        TypeScript para tipagem estática.
+
