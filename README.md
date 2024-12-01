@@ -20,7 +20,6 @@ Este projeto é uma aplicação de streaming de vídeos desenvolvida em Angular,
 
 - **Interação com dados via JSON Server**:
   - Simula o backend para persistência de dados.
-  - Permite a manipulação de visualizações, likes, favoritos e "watch later".
 
 ---
 
