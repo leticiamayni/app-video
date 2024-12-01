@@ -33,26 +33,31 @@ Este projeto é uma aplicação de streaming de vídeos desenvolvida em Angular,
 
 ### **Passos**
 1. Clone o repositório:
-   ```bash
+   ```python
    git clone https://github.com/seu-usuario/nome-do-repositorio.git
    cd nome-do-repositorio
+   ```
 
 2. Instale as dependências:
-    ```bash
+    ```python
     npm install
+    ```
 
 3. Inicie o JSON Server:
-    ```bash
+    ```python
     npx json-server --watch db.json --port 3000
+    ```
 
 4. Inicie o servidor de desenvolvimento Angular:
-    ```bash
+    ```python
     ng serve
+    ```
 
 5. Acesse a aplicação no navegador:
-    ```bash
+    ```python
     http://localhost:4200
-  ```
+    ```
+
 
 ### **Estrutura do Projeto**
 
@@ -106,7 +111,7 @@ Este projeto é uma aplicação de streaming de vídeos desenvolvida em Angular,
     **/:** Página inicial com listas de vídeos.
     **/video/:id:** Página de exibição do vídeo com detalhes.
 
-### **Tcnologias Utilizadas**
+### **Tecnologias Utilizadas**
     **Framework:** Angular
     **Estilização:** SCSS e Angular Material
     **Mock de Backend:** JSON Server
